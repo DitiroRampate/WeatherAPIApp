@@ -47,32 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
 //                // Instantiate the RequestQueue.
                     RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
-                    String url ="https://www.metaweather.com/api/location/search/?query=" + et_dataInput.getText().toString();
 
-                    JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET,url, null, new Response.Listener<JSONArray>() {
-                        @Override
-                        public void onResponse(JSONArray response) {
-                            String cityID ="";
-                            try {
-                                JSONObject cityInfo = response.getJSONObject(0);
-                                cityID = cityInfo.getString("woeid");
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                            Toast.makeText(MainActivity.this, "City ID " + cityID, Toast.LENGTH_SHORT).show();
-
-                        }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-
-                            Toast.makeText(MainActivity.this, "something wrong", Toast.LENGTH_SHORT).show();
-
-                        }
-                    });
-
-                //queue.add(request);
-                MySingleton.getInstance(MainActivity.this).addToRequestQueue(request);
 //
 //
             }
@@ -81,7 +56,9 @@ public class MainActivity extends AppCompatActivity {
         btn_getWeatherByID.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // Toast.makeText(MainActivity.this, "you clicked ", Toast.LENGTH_SHORT).show();
+                WeatherDataService weatherDataService = new WeatherDataService(MainActivity.this);
+               String cityID = weatherDataService.getCityID(et_dataInput.getText().toString());
+                Toast.makeText(MainActivity.this, "returned an ID of " + cityID, Toast.LENGTH_SHORT).show();
             }
         });
 
