@@ -71,25 +71,10 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
 
-                queue.add(request);
+                //queue.add(request);
+                MySingleton.getInstance(MainActivity.this).addToRequestQueue(request);
 //
-//                // Request a string response from the provided URL.
-//                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-//                        new Response.Listener<String>() {
-//                            @Override
-//                            public void onResponse(String response) {
-//                              Toast.makeText(MainActivity.this, response, Toast.LENGTH_SHORT).show();
-//                            }
-//                        }, new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        Toast.makeText(MainActivity.this, "Error occured", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
 //
-//                // Add the request to the RequestQueue.
-//                queue.add(stringRequest);
-                //Toast.makeText(MainActivity.this, "you clicked ", Toast.LENGTH_SHORT).show();
             }
         });
 
