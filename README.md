@@ -1,6 +1,6 @@
 # WeatherAPIApp
 Weather RESTAPI,
- This native android app uses RESTAPI, Network Data, to get the weather of a given city. This is accomplished through RESTAPI, ASYNCHRONOUS COSEand VOLLEY LIBRARY It uses:
+ This native android app uses RESTAPI, Network Data, to get the weather of a given city. This is accomplished through RESTAPI, ASYNCHRONOUS COSE and VOLLEY LIBRARY It uses:
  
 - Request JSON Data with Volley
 - Singleton Request Queue in Volley
